@@ -1,0 +1,122 @@
+<div class="card">
+  <div class="edit-btn">
+    <i
+      class="fa fa-pencil-square-o"
+      aria-hidden="true"
+      (click)="onEdit()"
+      *ngIf="!isEditing"
+    ></i>
+    <i
+      class="fa fa-times"
+      aria-hidden="true"
+      (click)="onCancel()"
+      *ngIf="isEditing"
+    ></i>
+  </div>
+  <div class="image"><img src="{{ profile }}" alt="" /></div>
+  <table>
+    <tr>
+      <i class="fa fa-user" aria-hidden="true" style="font-size: 20px"></i>
+      <td>Username</td>
+      <td>{{ username }}</td>
+      <td *ngIf="isEditing">
+        <input
+          type="text"
+          placeholder="new username"
+          name="username"
+          [(ngModel)]="bindingUsername"
+        />
+      </td>
+      <td *ngIf="isEditing">
+        <button mat-raised-button color="primary" (click)="changeUsername()">
+          Save
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <i
+        class="fa fa-address-card"
+        aria-hidden="true"
+        style="font-size: 20px"
+      ></i>
+      <td>Role</td>
+      <td>{{ role }}</td>
+    </tr>
+    <tr>
+      <i
+        class="fa fa-envelope fa-2x table-icon"
+        aria-hidden="true"
+        style="font-size: 20px"
+      ></i>
+      <td>Email</td>
+      <td>{{ email }}</td>
+      <td *ngIf="isEditing">
+        <input
+          type="text"
+          placeholder="new email"
+          name="email"
+          [(ngModel)]="bindingEmail"
+        />
+      </td>
+      <td *ngIf="isEditing">
+        <button mat-raised-button color="primary" (click)="changeEMail()">
+          Verify
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <i
+        class="fa fa-plus-square fa-2x table-icon"
+        aria-hidden="true"
+        style="font-size: 20px"
+      ></i>
+
+      <td>Created At</td>
+      <td>{{ createdAt | date }}</td>
+    </tr>
+    <tr>
+      <i
+        class="fa fa-unlock-alt fa-2x table-icon"
+        aria-hidden="true"
+        style="font-size: 20px"
+      ></i>
+
+      <td>Password</td>
+      <td *ngIf="!isEditing">********</td>
+      <td *ngIf="isEditing">
+        <input
+          type="text"
+          placeholder="current password"
+          name="passwordCurrent"
+          formControlName="passwordCurrent"
+        />
+      </td>
+      <td *ngIf="isEditing">
+        <input
+          type="text"
+          placeholder="new password"
+          name="password"
+          formControlName="password"
+        />
+      </td>
+      <td *ngIf="isEditing">
+        <input
+          type="text"
+          placeholder="confirm password"
+          name="passwordConfirm"
+          formControlName="passwordConfirm"
+        />
+      </td>
+    </tr>
+  </table>
+  <div class="buttons">
+    <button
+      mat-raised-button
+      color="primary"
+      *ngIf="isEditing"
+      (click)="changePassword()"
+    >
+      Change
+    </button>
+  </div>
+</div>

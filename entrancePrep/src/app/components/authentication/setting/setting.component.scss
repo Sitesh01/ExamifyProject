@@ -1,0 +1,15 @@
+.container {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+
+//media queries
+@media (max-width: 768px) {
+  .container {
+    height: auto;
+  }
+}

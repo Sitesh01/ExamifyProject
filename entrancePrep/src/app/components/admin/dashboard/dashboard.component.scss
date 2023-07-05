@@ -1,0 +1,22 @@
+.main-container {
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
+  line-height: 2;
+  .sidebar {
+    width: 20%;
+  }
+  .content {
+    width: 80%;
+    overflow: scroll;
+    //hide scrollbar
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .data{
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}

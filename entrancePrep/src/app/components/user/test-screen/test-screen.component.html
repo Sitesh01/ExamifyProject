@@ -1,0 +1,85 @@
+<div class="blog-container">
+  <div class="blog-header">
+    <div class="back" (click)="onBack()">
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>
+    </div>
+    <div class="timer">
+      <h2 id="time">{{ timer }}</h2>
+    </div>
+    <div class="score">
+      <p>Score</p>
+      <h1 id="score">{{ score }}</h1>
+    </div>
+  </div>
+  <div class="main-container">
+    <div class="main-content">
+      <div class="question-card">
+        <mat-card class="blog-card">
+          <mat-card-header>
+            <mat-card-title [innerHTML]="selectedQuestionObj.question">
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div
+              class="options"
+              *ngFor="let opt of selectedQuestionObj.options"
+            >
+              <div class="option">
+                <mat-radio-group
+                  [(ngModel)]="selectedOptions[selectedQuestionIndex]"
+                >
+                  <mat-radio-button [value]="opt">{{ opt }}</mat-radio-button>
+                </mat-radio-group>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-footer>
+            <div
+              class="blog-footer"
+              *ngIf="isSubmitted"
+              [ngStyle]="{ 'background-color': getBgForAns() }"
+            >
+              <div class="answerHidden">
+                <mat-icon>question_answer</mat-icon>
+                <p>Correct Option: {{ selectedQuestionObj.correctAnswer }}</p>
+              </div>
+              <div class="explanation">
+                Explanation:
+                <p [innerHTML]="selectedQuestionObj.explanation"></p>
+              </div>
+            </div>
+            <div class="footer-btn">
+              <button (click)="onPrevious(selectedQuestionIndex)">
+                Previous
+              </button>
+              <button (click)="onNext(selectedQuestionIndex)">Next</button>
+              <button (click)="markForReview(selectedQuestionIndex)">
+                Mark as review
+              </button>
+            </div>
+          </mat-card-footer>
+        </mat-card>
+      </div>
+    </div>
+    <div class="sidenav-container">
+      <div class="sidenav">
+        <div class="question-index">
+          <div
+            class="question"
+            *ngFor="let ques of questions; let i = index"
+            (click)="onQuestion(i, ques)"
+            [ngStyle]="{ 'background-color': getBackgroundColor(i) }"
+          >
+            <p>{{ i + 1 }}</p>
+          </div>
+        </div>
+        <div class="hints">
+          <p>*Answered: green</p>
+          <p>*Not Answered: transparent</p>
+          <p>*Marked for review: orange</p>
+        </div>
+        <button mat-raised-button (click)="onSubmit()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

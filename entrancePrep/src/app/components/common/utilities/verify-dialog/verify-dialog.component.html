@@ -1,0 +1,12 @@
+<div class="warn" mat-dialog-content>
+  <h3>Are you sure you want to {{ title }} ?</h3>
+  <p>
+    Note: {{ message }}
+  </p>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-stroked-button mat-dialog-close>Close</button>
+  <button mat-stroked-button color="warn" (click)="btnClicked()">
+    {{ btnAction }}
+  </button>
+</div>

@@ -1,0 +1,37 @@
+<h2>{{ header }} Blog</h2>
+<div class="form-container">
+  <form [formGroup]="blogForm" (ngSubmit)="editBlog()">
+    <div class="form-field">
+      <label>Title</label>
+      <input type="text" name="title" formControlName="title" />
+    </div>
+    <div class="form-field">
+      <label>Category</label>
+      <select class="form-control" id="category" formControlName="category">
+        <option
+          class="option"
+          *ngFor="let category of categories"
+          [value]="category"
+        >
+          {{ category }}
+        </option>
+      </select>
+    </div>
+    <div class="form-field">
+      <label>Content</label>
+      <ckeditor
+        [editor]="Editor"
+        name="content"
+        formControlName="content"
+        data="<p>Write your question here...</p>"
+      ></ckeditor>
+    </div>
+    <div class="form-field">
+      <label>Author</label>
+      <input type="text" name="author" formControlName="author" />
+    </div>
+    <button mat-raised-button color="primary" type="submit">
+      {{ btnAction }}
+    </button>
+  </form>
+</div>

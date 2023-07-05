@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Feedback</h2>
+  <div class="feedback-container">
+    <mat-card *ngFor="let feedback of feedbackList">
+      <mat-card-header>
+        <mat-card-title>{{ feedback.username }}</mat-card-title>
+        <mat-card-subtitle>{{ feedback.createdAt | date }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ feedback.feedback }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

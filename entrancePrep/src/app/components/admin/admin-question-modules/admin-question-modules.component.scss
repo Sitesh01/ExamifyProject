@@ -1,0 +1,119 @@
+// Define colors and fonts to use
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$body-font: "Roboto", sans-serif;
+
+// Style the container
+.container {
+  padding: 1rem;
+  font-family: $body-font;
+}
+
+// Style the header
+h1 {
+  color: black;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+// Style the list items
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $secondary-color;
+
+    .second {
+      color: #fff;
+    }
+    .third {
+      color: #fff;
+    }
+    .fourth {
+      color: #fff;
+    }
+  }
+
+  // Style the first column
+  .first {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: $primary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    font-size: 2rem;
+    font-weight: 500;
+
+    h1 {
+      color: #fff;
+      margin: 0;
+    }
+  }
+
+  // Style the second column
+  .second {
+    flex: 1;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  // Style the third column
+  .third {
+    font-size: 1rem;
+    color: $secondary-color;
+    margin-left: auto;
+    margin-right: 1rem;
+  }
+
+  // Style the fourth column
+  .fourth {
+    font-size: 1rem;
+    color: $secondary-color;
+  }
+}
+
+
+//media queries
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .list-item {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    .first {
+      width: 3rem;
+      height: 3rem;
+      font-size: 1.5rem;
+    }
+
+    .second {
+      font-size: 1rem;
+    }
+
+    .third {
+      font-size: 0.75rem;
+    }
+
+    .fourth {
+      font-size: 0.75rem;
+    }
+  }
+}

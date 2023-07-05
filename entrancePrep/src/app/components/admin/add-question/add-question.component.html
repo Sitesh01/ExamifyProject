@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="header">
+    <!-- <div class="back" (click)="onBack()">
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>
+    </div> -->
+    <h2>{{ title }} Question</h2>
+    <div></div>
+  </div>
+  <div class="form-container">
+    <form [formGroup]="questionForm">
+      <div class="form-field">
+        <label>Question</label>
+        <ckeditor
+          [editor]="Editor"
+          name="question"
+          formControlName="question"
+          data="<p>Write your question here...</p>"
+        ></ckeditor>
+      </div>
+      <div class="form-field">
+        <label>Subject</label>
+        <input type="text" name="subject" formControlName="subject" />
+      </div>
+      <div class="form-field">
+        <label>Set No.</label>
+        <input type="text" name="setNo" formControlName="setNo" />
+      </div>
+      <div class="form-field" formArrayName="options">
+        <div class="option-div">
+          <label>Options</label>
+          <button class="addOption-btn" (click)="addOption()">Add</button>
+        </div>
+        <div
+          *ngFor="let option of options().controls; let i = index"
+          [formGroupName]="i"
+          class="option-div-2"
+        >
+          <input type="text" name="opt" formControlName="opt" />
+          <button class="removeOption-btn" (click)="removeOption(i)">-</button>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>Correct answer</label>
+        <select
+          class="form-control"
+          id="correctAnswer"
+          formControlName="correctAnswer"
+        >
+          <option
+            class="option"
+            *ngFor="let option of options().controls; let i = index"
+            [value]="option.value.opt"
+          >
+            {{ option.value.opt }}
+          </option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>Answer Explanation</label>
+        <ckeditor
+          [editor]="Editor2"
+          name="explanation"
+          formControlName="explanation"
+          data="<p>Explanation...</p>"
+        ></ckeditor>
+      </div>
+      <div class="form-field">
+        <label>Active Date</label>
+        <!-- date with time picker -->
+        <input
+          type="datetime-local"
+          id="date"
+          name="activatedDate"
+          formControlName="activatedDate"
+        />
+      </div>
+      <div class="form-field">
+        <label>Author</label>
+        <input type="text" name="author" formControlName="author" />
+      </div>
+      <button mat-raised-button class="add-btn" (click)="operation()">
+        {{ btnAction }}
+      </button>
+    </form>
+  </div>
+</div>

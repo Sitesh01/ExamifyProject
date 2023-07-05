@@ -1,0 +1,69 @@
+<header>
+  <h1 class="headers">BLOGS</h1>
+</header>
+<div class="band">
+  <div class="item-1" (click)="onSetClick(blogs[0]._id)">
+    <div class="card">
+      <div class="thumb" style="background-image: url({{blogs[0].imageLink}});"></div>
+      <article>
+        <div class="setting">
+          <div class="tool-icons">
+            <img
+              src="../../../../assets/icons/edit.svg"
+              alt="edit-icon"
+              *ngIf="admin"
+              (click)="editBlog($event, blogs[0])"
+            />
+            <img
+              src="../../../../assets/icons/delete.svg"
+              alt="delete-icon"
+              *ngIf="admin"
+            (click)="deleteBlog($event, blogs[0]._id)"
+            />
+          </div>
+
+        </div>
+        <h1>{{blogs[0].title}}</h1>
+        <span>{{blogs[0].author}}</span>
+        <small>{{blogs[0].createdAt | date }}</small>
+      </article>
+    </div>
+  </div>
+  <div class="item-2" *ngFor="let blog of slicedBlogs; let i=index"
+  (click)="onSetClick(blog._id)">
+    <div  class="card">
+      <div  class="thumb" style="background-image: url({{blog.imageLink}});"></div>
+
+      <article>
+        <div class="setting">
+          <div class="tag">School</div>
+          <div class="tool-icons">
+            <img
+              src="../../../../assets/icons/edit.svg"
+              alt="edit-icon"
+              *ngIf="admin"
+              (click)="editBlog($event, blog)"
+            />
+            <img
+              src="../../../../assets/icons/delete.svg"
+              alt="delete-icon"
+              *ngIf="admin"
+            (click)="deleteBlog($event, blog._id)"
+            />
+          </div>
+
+        </div>
+        <h1>{{blog.title}}</h1>
+        <p [innerHTML]="blog.content"></p>
+        <span>{{blog.author}}</span>
+        <small>{{blog.createdAt | date}}</small>
+      </article>
+    </div>
+  </div>
+</div>
+
+<div class="button-group" *ngIf="admin">
+  <button mat-fab (click)="addBlog()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Fasthand&family=Montserrat+Alternates:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Changa:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Handlee&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Koulen&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jaldi:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+@import "../node_modules/mdb-angular-ui-kit/assets/scss/mdb.scss";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "bootstrap/scss/bootstrap";
+
+/* Importing Angular Material SCSS file. */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "../node_modules/font-awesome/scss/font-awesome.scss";
+
+// .error-snackbar {
+//   background-color: #f44336;
+//   color: #fff;
+//   font-size: 1.2rem;
+//   padding: 0.5rem;
+//   border-radius: 5px;
+//   margin-bottom: 10px;
+// }
+// .success-snackbar {
+//   background-color: #4caf50;
+//   color: #fff;
+//   font-size: 1.2rem;
+//   padding: 0.5rem;
+//   border-radius: 5px;
+//   margin-bottom: 10px;
+// }
+
+.edit-blog-dialog {
+  padding: 0;
+  height: 500px;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+//media queries
+@media (max-width: 768px) {
+  .edit-blog-dialog {
+    padding: 0;
+    height: 500px;
+  }
+}

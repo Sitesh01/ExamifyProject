@@ -1,0 +1,197 @@
+$primary-color: #4caf50;
+$secondary-color: #26165c;
+$highlight-color: #6897e4;
+
+@mixin button-styles {
+  background-color: $primary-color;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+
+  &:hover {
+    background-color: #43a047;
+  }
+}
+
+.result-card {
+  background-color: #dad6de;
+  padding: 20px;
+  .blog-card {
+    margin: 10px;
+
+    .result-header {
+      display: flex;
+      flex-direction: column;
+    }
+
+    mat-card-header {
+      display: flex;
+      flex-direction: row;
+
+      .mat-question {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .viewAns {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 10px 0;
+        cursor: pointer;
+        color: black;
+        padding: 10px;
+        width: 80%;
+        border-radius: 10px;
+      }
+    }
+
+    mat-card-content {
+      .options {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+
+        .option {
+          margin: 5px;
+
+          mat-radio-button {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    mat-card-footer {
+      .footer-btn {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin: 10px;
+
+        button {
+          @include button-styles;
+          margin-left: 10px;
+          width: 100px;
+        }
+      }
+      .blog-footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 10px;
+        color: $secondary-color;
+        padding: 20px;
+
+        a {
+          text-decoration: none;
+          color: $secondary-color;
+
+          &:hover {
+            color: $highlight-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .result-card {
+    .blog-card {
+      .result-header {
+        flex-direction: column;
+      }
+      mat-card-header {
+        flex-direction: column;
+        .mat-question {
+          flex-direction: column;
+        }
+        .viewAns {
+          width: 100%;
+          margin: 10px 0;
+          text-align: center;
+        }
+      }
+      mat-card-content {
+        .options {
+          flex-direction: column;
+          margin: 10px 0;
+          .option {
+            margin: 5px 0;
+          }
+        }
+      }
+      mat-card-footer {
+        .footer-btn {
+          flex-direction: column;
+          justify-content: center;
+          button {
+            margin-left: 0;
+            margin-top: 10px;
+            width: 100%;
+          }
+        }
+        .blog-footer {
+          margin: 10px 0;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .result-card {
+    padding: 10px;
+    .blog-card {
+      margin: 5px;
+      .result-header {
+        flex-direction: column;
+        margin-bottom: 10px;
+      }
+      mat-card-header {
+        flex-direction: column;
+        .mat-question {
+          flex-direction: column;
+          margin-bottom: 10px;
+        }
+        .viewAns {
+          width: 100%;
+          margin: 10px 0;
+          text-align: center;
+          padding: 10px;
+          border-radius: 5px;
+        }
+      }
+      mat-card-content {
+        .options {
+          flex-direction: column;
+          margin: 10px 0;
+          .option {
+            margin: 5px 0;
+          }
+        }
+      }
+      mat-card-footer {
+        .footer-btn {
+          flex-direction: column;
+          justify-content: center;
+          margin: 10px 0;
+          button {
+            margin-left: 0;
+            margin-top: 10px;
+            width: 100%;
+          }
+        }
+        .blog-footer {
+          margin: 10px 0;
+          padding: 10px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+<!--aside bar-->
+<nav class="navbar" [class.active]="navbarActive">
+  <div class="navbar-container">
+    <!--logo div-->
+    <div class="navbar-logo-div">
+      <a class="navbar-logo-link" href="#">
+        <i class="fas fa-shield-dog"></i>
+      </a>
+      <button class="navbar-toggler" (click)="toggleNavbar()">
+        <i class="fas fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <!--search input-->
+
+    <input
+      type="search"
+      name="search"
+      placeholder="Search..."
+      class="navbar-search"
+      id="search"
+      (click)="activateNavbar()"
+    />
+
+    <i
+      id="icon-search"
+      class="fas fa-regular fa-ss"
+      (click)="activateNavbar()"
+    ></i>
+
+    <!--item list-->
+    <ul class="menu-list">
+      <li class="menu-item" routerLink="/dashboard/dashboard-details" routerLinkActive="active">
+        <a class="menu-link">
+          <i class="fas fa-solid fa-table" title="Dashboard" style="font-size: 20px"></i>
+          <span class="menu-link-text">Dashboard</span>
+        </a>
+      </li>
+      <li class="menu-item" routerLink="/dashboard/users" routerLinkActive="active">
+        <a class="menu-link">
+          <i class="fas fa-solid fa-user" title="Users" style="font-size: 20px"></i>
+          <span class="menu-link-text">Users</span>
+        </a>
+      </li>
+      <li class="menu-item" routerLink="/dashboard/examines" routerLinkActive="active">
+        <a class="menu-link">
+          <i class="fa fa-clock-o" aria-hidden="true" title="Examines" style="font-size: 20px"></i>
+          <span class="menu-link-text">Examines</span>
+        </a>
+      </li>
+      <li class="menu-item" routerLink="/dashboard/blogs" routerLinkActive="active">
+        <a class="menu-link" class="menu-link">
+          <i class="fas fa-solid fa-blog" title="Blogs" style="font-size: 20px"></i>
+          <span class="menu-link-text">Blogs</span>
+        </a>
+      </li>
+      <li class="menu-item" routerLink="/dashboard/admin-question-modules" routerLinkActive="active">
+        <a class="menu-link">
+          <i class="fas fa-regular fa-book" title="Questions" style="font-size: 20px"></i>
+          <span class="menu-link-text">Questions</span>
+        </a>
+      </li>
+      <li class="menu-item" routerLink="/dashboard/comments" routerLinkActive="active">
+        <a class="menu-link">
+          <i class="fas fa-duotone fa-comment" title="Comments" style="font-size: 20px"></i>
+          <span class="menu-link-text">Comments</span>
+        </a>
+      </li>
+      <li class="menu-item" routerLink="/dashboard/feedbacks" routerLinkActive="active">
+        <a class="menu-link">
+          <i class="fa fa-commenting-o" title="Feedbacks" style="font-size: 20px"></i>
+          <span class="menu-link-text">Feedback</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!--dashboard-->

@@ -1,0 +1,37 @@
+<div class="container">
+  <h2>Dashboard</h2>
+    <div class="dashboard-card">
+      <div class="card">
+        <div class="title">Active Users</div>
+        <div class="content">
+          <mat-icon>supervised_user_circle</mat-icon>
+          <div class="count" style="color: greenyellow">{{ activeUsers }}</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="title">Total Users</div>
+        <div class="content">
+          <mat-icon>supervisor_account</mat-icon>
+          <div class="count">{{ totalUsers }}</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="title">Total Questions</div>
+        <div class="content">
+          <mat-icon>assignment icon</mat-icon>
+               
+          <div class="count">{{ totalQuestions }}</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="title">Total Blogs</div>
+        <div class="content">
+          <mat-icon>rss_feed</mat-icon>
+          <div class="count">{{ totalBlogs }}</div>
+        </div>
+      </div>
+    </div>
+  </div>

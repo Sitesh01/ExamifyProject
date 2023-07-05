@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="header">
+    <h3>Prepare</h3>
+  </div>
+  <div class="divider"></div>
+  <div class="dashboard-card">
+    <div class="header">
+      <h3>Your Preparation</h3>
+    </div>
+    <div class="cards">
+      <div class="card" *ngFor="let progress of dataList">
+        <h2>{{ progress.subject }}</h2>
+        <div
+          class="progressBar"
+          [ngStyle]="{ width: progress.percentageWithSymbol }"
+        ></div>
+        {{ progress.percentageWithSymbol }}
+
+        <p>{{ progress.suggestion }}</p>
+        <b>On {{ progress.createdAt | date }}</b>
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <!-- tabs for upcoming and current exams -->
+
+  <div class="container-2">
+    <mat-tab-group>
+      <mat-tab label="Available exams">
+        <div class="feedback-container">
+          <mat-card
+            *ngFor="let subject of subjects; let i = index"
+            [value]="i + 1"
+            (click)="onSubjectClick(subject.subject)"
+            style="background-color: rgb(171, 229, 171);"
+          >
+            <mat-card-header>
+              <mat-card-title>{{ subject.subject }}</mat-card-title>
+              <mat-card-subtitle><p>Sets {{ subject.sets }}</p></mat-card-subtitle>
+            </mat-card-header>
+          </mat-card>
+        </div>
+      </mat-tab>
+      <mat-tab label="Upcoming exams">
+        <div class="feedback-container">
+          <mat-card
+            *ngFor="let setList of upcomingSets; let i = index"
+            [value]="i + 1"
+            style="background-color: lightblue;"
+          >
+            <mat-card-header>
+              <mat-card-title>{{ setList[0].subject }}</mat-card-title>
+              <mat-card-subtitle>{{ setList[0].author }}</mat-card-subtitle>
+            </mat-card-header>
+          </mat-card>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+
+  <!-- end of tabs sections  -->
+</div>

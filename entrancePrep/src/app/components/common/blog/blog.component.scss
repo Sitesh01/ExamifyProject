@@ -1,0 +1,184 @@
+// Define variables
+$primary-color: #050872;
+$secondary-color: #070335;
+$hover-color: rgba(0, 0, 0, 0.3);
+$border-radius: 15px;
+$box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+$hover-transition: all 0.1s ease-in;
+
+// Define mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin text-ellipsis {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Define styles
+.headers {
+  font-family: "Roboto";
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.band {
+  cursor: pointer;
+  width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 30em) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 60em) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  grid-gap: 20px;
+}
+
+.card {
+  background: white;
+  text-decoration: none;
+  color: #444;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+
+  // sets up hover state
+  position: relative;
+  top: 0;
+  transition: $hover-transition;
+
+  &:hover {
+    top: -2px;
+    box-shadow: 0 4px 5px $hover-color;
+  }
+
+  article {
+    padding: 3px 20px 20px 20px;
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  h1 {
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0;
+    color: #333;
+
+    @media (min-width: 60em) {
+      font-size: 24px;
+    }
+  }
+
+  p {
+    margin-top: 10px;
+    color: black;
+    flex: 1;
+    font-family: "Poppins";
+    line-height: 1.4;
+    word-wrap: break-word;
+    word-break: break-all;
+    @include text-ellipsis;
+  }
+
+  span {
+    font-size: 12px;
+    font-weight: bold;
+    color: $primary-color;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 2em 0 0 0;
+  }
+
+  .thumb {
+    margin: 10px;
+
+    border-radius: 10px;
+    padding-bottom: 60%;
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
+.item-1 {
+  @media (min-width: 60em) {
+    grid-column: 1 / span 2;
+  }
+}
+
+.setting {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tag {
+  font-family: "Roboto";
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.tool-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: 100px;
+
+  img {
+    width: 23px;
+    height: 23px;
+    opacity: 0.5;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: all 0.3s ease-in-out;
+      opacity: 1;
+    }
+  }
+}
+
+.button-group {
+  position: fixed;
+  bottom: 20px;
+  right: 0;
+  margin-right: 20px;
+  z-index: 1;
+
+  button {
+    border: none;
+    box-shadow: none;
+    margin: 10px 8px;
+    background-image: radial-gradient(
+      circle 610px at 5.2% 51.6%,
+      rgba(5, 8, 114, 1) 0%,
+      rgba(7, 3, 53, 1) 97.5%
+    );
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+  }
+}

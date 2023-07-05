@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Admin Question Modules</h1>
+  <div
+    class="list-item"
+    *ngFor="let subject of subjects; let i = index"
+    (click)="onSubjectClick(subject.subject)"
+  >
+    <div class="first">
+      <h1>{{ subject.firstInitial }}</h1>
+    </div>
+    <div class="second">
+      <p>{{ subject.subject }}</p>
+    </div>
+    <div class="third">
+      <p matLine>30 min</p>
+    </div>
+    <div class="fourth">
+      <p>Sets: {{ subject.sets }}</p>
+    </div>
+  </div>
+</div>

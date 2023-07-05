@@ -1,0 +1,90 @@
+<div class="container">
+  <h2>Examines</h2>
+  <div class="demo-button-container">
+    <input placeholder="Search" class="searchBox" [(ngModel)]="searchText" (keyup)="filterData()"/>
+  </div>
+
+  <table mat-table [dataSource]="examines" class="mat-elevation-z8 demo-table">
+    <ng-container matColumnDef="username">
+      <th class="table-Header" mat-header-cell *matHeaderCellDef>Username</th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        (click)="getExamineDetails(element.testId)"
+      >
+        {{ element.user.username }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th class="table-Header" mat-header-cell *matHeaderCellDef>Email</th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        (click)="getExamineDetails(element.testId)"
+      >
+        {{ element.user.email }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="subject">
+      <th class="table-Header" mat-header-cell *matHeaderCellDef>Subject</th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        (click)="getExamineDetails(element.testId)"
+      >
+        {{ element.subject }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="testId">
+      <th class="table-Header" mat-header-cell *matHeaderCellDef>Test Id</th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        (click)="getExamineDetails(element.testId)"
+      >
+        {{ element.testId }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="score">
+      <th class="table-Header" mat-header-cell *matHeaderCellDef>Score</th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        (click)="getExamineDetails(element.testId)"
+      >
+        {{ element.score }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="createdAt">
+      <th class="table-Header" mat-header-cell *matHeaderCellDef>
+        Created Date
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        (click)="getExamineDetails(element.testId)"
+      >
+        {{ element.createdAt | date }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="duration">
+      <th class="table-Header" mat-header-cell *matHeaderCellDef>Duration</th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        (click)="getExamineDetails(element.testId)"
+      >
+        {{ element.duration }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

@@ -1,0 +1,192 @@
+// Define variables
+$primary-color: #007bff;
+$danger-color: #dc3545;
+$success-color: #28a745;
+$white-color: #fff;
+$gray-color: #f1f1f1;
+$black-color: #000;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $gray-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $black-color;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: darken($black-color, 20%);
+  }
+
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+
+    h2 {
+      margin: 0;
+      font-family: "Sigmar One", cursive;
+    }
+  }
+
+  .form-container {
+    padding: 20px;
+
+    .form-field {
+      margin-bottom: 20px;
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        font-family: "Koulen", cursive;
+      }
+
+      input[type="text"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid $gray-color;
+        border-radius: 5px;
+        box-shadow: none;
+        background-color: $gray-color;
+        font-family: "Jaldi", sans-serif;
+      }
+
+      #date {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid $gray-color;
+        border-radius: 5px;
+        box-shadow: none;
+        background-color: $gray-color;
+        font-family: "Jaldi", sans-serif;
+      }
+
+      select {
+        padding: 10px 20px;
+        border: 1px solid $gray-color;
+        border-radius: 5px;
+        font-size: 16px;
+        appearance: none;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill="black" d="M4.5 6L8 9.5 11.5 6z"/></svg>')
+          no-repeat right center / 16px 16px;
+
+        &:focus {
+          outline: none !important;
+          border-color: $primary-color !important;
+        }
+      }
+
+      textarea {
+        resize: none;
+        height: 100px;
+      }
+
+      .option-div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .addOption-btn {
+          border: none;
+          border-radius: 50px;
+          padding: 5px;
+          background-color: $primary-color;
+          color: $white-color;
+          margin: 5px;
+          cursor: pointer;
+          width: 5vw;
+
+          &:hover {
+            background-color: darken($primary-color, 20%);
+            transition: 0.3s ease-in-out;
+          }
+        }
+      }
+
+      .option-div-2 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        input {
+          width: 20vw;
+        }
+        .removeOption-btn {
+          border: none;
+          border-radius: 50px;
+          padding: 5px;
+          background-color: #dc3545;
+          color: #fff;
+          margin: 5px;
+          cursor: pointer;
+          width: 5vw;
+          &:hover {
+            background-color: #c82333;
+            transition: 0.3s ease-in-out;
+          }
+        }
+      }
+    }
+
+    .add-btn {
+      border: none;
+      border-radius: 50px;
+      background-color: #007bff;
+      color: #fff;
+      margin: 1rem 0;
+      cursor: pointer;
+      width: 10vw;
+      transition: background-color 0.3s ease-in-out;
+
+      &:hover {
+        background-color: darken(#007bff, 10%);
+      }
+    }
+  }
+}
+
+
+//meida query
+@media screen and (max-width: 768px) {
+  .container {
+    .form-container {
+      width: 100vw;
+      .form-field {
+        .option-div {
+          .addOption-btn {
+            width: 10vw;
+          }
+        }
+        .option-div-2 {
+          input {
+            width: 50vw;
+          }
+          .removeOption-btn {
+            width: 10vw;
+          }
+        }
+      }
+      .add-btn {
+        width: 20vw;
+      }
+    }
+  }
+}

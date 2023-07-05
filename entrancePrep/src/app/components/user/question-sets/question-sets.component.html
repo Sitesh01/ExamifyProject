@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>{{ subjectFromParam }}</h1>
+  <div class="list-item" *ngFor="let set of sets; let i = index">
+    <div class="first">
+      <h1>Set {{ i + 1 }}</h1>
+    </div>
+    <div class="second">
+      <div
+        class="option-btns"
+        *ngIf="
+          checkIfUserHasSubmitted(set[0].subject, set[0].setNo) &&
+            subjectGiven.includes(set[0].subject, set[0].setNo);
+          else notGiven
+        "
+      >
+        <button
+          mat-raised-button
+          (click)="viewCurrentSetRecord(set[0].subject, set[0].setNo)"
+        >
+          View
+        </button>
+        <button
+          mat-raised-button
+          (click)="resetCurrentSetRecord(set[0].subject, set[0].setNo)"
+        >
+          Reset
+        </button>
+      </div>
+      <ng-template class="option-btns" #notGiven>
+        <button
+          mat-raised-button
+          (click)="onSetClick(set[0].setNo, set[0].subject)"
+        >
+          Start
+        </button>
+      </ng-template>
+    </div>
+  </div>
+</div>

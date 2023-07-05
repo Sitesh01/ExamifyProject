@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="left-container">
+    <img
+      src="assets/images/Mobile-login.svg"
+      alt="Sign Up Image"
+      class="image"
+    />
+  </div>
+  <div class="right-container">
+    <div class="card">
+      <h2>Login</h2>
+
+      <div class="form-container">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="form-field">
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              formControlName="email"
+              [(ngModel)]="email"
+              [pattern]="emailPattern"
+              required
+            />
+            <div
+              *ngIf="
+                loginForm.get('email')?.invalid &&
+                (loginForm.get('email')?.dirty ||
+                  loginForm.get('email')?.touched)
+              "
+              class="error"
+            >
+              Please enter a valid email address.
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Password</label>
+            <div class="password-wrapper">
+              <input
+                type="{{ hidePassword ? 'password' : 'text' }}"
+                name="password"
+                formControlName="password"
+                [(ngModel)]="password"
+                required
+              />
+              <button
+                mat-icon-button
+                type="button"
+                (click)="togglePasswordVisibility()"
+              >
+                <mat-icon>{{
+                  hidePassword ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+            </div>
+            <div
+              *ngIf="
+                loginForm.get('password')?.invalid &&
+                (loginForm.get('password')?.dirty ||
+                  loginForm.get('password')?.touched)
+              "
+              class="error"
+            >
+              Please enter a password.
+            </div>
+          </div>
+          <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || !loginForm.touched">
+            Log In
+          </button>
+          <p class="forgetpassword">
+            <a routerLink="/forgetPassword">Forget Password?</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

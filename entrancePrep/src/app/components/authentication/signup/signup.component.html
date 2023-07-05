@@ -1,0 +1,116 @@
+<div class="container" *ngIf="signupContainer; else verificationPage">
+  <div class="left-container">
+    <img src="assets/images/signup.svg" alt="Sign Up Image" class="image" />
+  </div>
+  <div class="right-container">
+    <div class="card">
+      <h2>Sign Up</h2>
+      <div class="form-container">
+        <form [formGroup]="signupForm" (ngSubmit)="signup()">
+          <div class="form-field">
+            <label>Username</label>
+            <input type="text" name="username" formControlName="username" />
+          </div>
+          <div class="form-field">
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              formControlName="email"
+              [(ngModel)]="email"
+              [pattern]="emailPattern"
+              required
+            />
+            <div
+              *ngIf="
+                signupForm.get('email')?.invalid &&
+                (signupForm.get('email')?.dirty ||
+                  signupForm.get('email')?.touched)
+              "
+              class="error"
+            >
+              Please enter a valid email address.
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Password</label>
+            <div class="password-wrapper">
+              <input
+                type="{{ hidePassword ? 'password' : 'text' }}"
+                name="password"
+                formControlName="password"
+                [(ngModel)]="password"
+                required
+              />
+              <button
+                mat-icon-button
+                type="button"
+                (click)="togglePasswordVisibility()"
+              >
+                <mat-icon>{{
+                  hidePassword ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+            </div>
+            <div
+              *ngIf="
+                signupForm.get('password')?.invalid &&
+                (signupForm.get('password')?.dirty ||
+                  signupForm.get('password')?.touched)
+              "
+              class="error"
+            >
+              Please enter a password.
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Confirm Password</label>
+            <div class="password-wrapper">
+              <input
+                type="{{ hidePasswordConfirm ? 'password' : 'text' }}"
+                name="passwordConfirm"
+                formControlName="passwordConfirm"
+                [(ngModel)]="passwordConfirm"
+                required
+              />
+              <button
+                mat-icon-button
+                type="button"
+                (click)="togglePasswordConfirmVisibility()"
+              >
+                <mat-icon>{{
+                  hidePasswordConfirm ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+            </div>
+            <div
+              *ngIf="
+                signupForm.get('password')?.value !==
+                  signupForm.get('passwordConfirm')?.value &&
+                (signupForm.get('passwordConfirm')?.dirty ||
+                  signupForm.get('passwordConfirm')?.touched)
+              "
+              class="error"
+            >
+              Password does not match.
+            </div>
+          </div>
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="signupForm.invalid || !signupForm.touched"
+          >
+            Sign Up
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template class="container" #verificationPage>
+  <h2 class="verificationText">
+    A verification link has been sent to your email address. Please verify.
+  </h2>
+</ng-template>

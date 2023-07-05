@@ -1,0 +1,17 @@
+<div class="result-card">
+  <mat-card
+    class="blog-card"
+    *ngFor="let ques of examines.submittedAnswers; let i = index"
+  >
+    <mat-card-header class="result-header">
+      <div class="mat-question">
+        <mat-card-title>Q{{ i + 1 }}.</mat-card-title>
+        <mat-card-title [innerHTML]="ques.question"></mat-card-title>
+      </div>
+      <div class="viewAns">
+        <p>Your answer: {{ ques.answer }}</p>
+        <p>Correct Answer: {{ ques.correctAnswer }}</p>
+      </div>
+    </mat-card-header>
+  </mat-card>
+</div>

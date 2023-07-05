@@ -1,0 +1,168 @@
+h1 {
+  margin: 1rem 0;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .card {
+    margin: 1rem;
+    width: 30rem;
+    background-color: #f5f5f5;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    mat-card-header {
+      background-color: #4a6683;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: start;
+
+      mat-card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0;
+      }
+      .tool-icons {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100px;
+
+        img {
+          width: 23px;
+          height: 23px;
+          opacity: 0.5;
+          margin-left: 10px;
+
+          &:hover {
+            transform: scale(1.1);
+            transition: all 0.3s ease-in-out;
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    mat-content {
+      h2 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin: 0.5rem 0;
+      }
+
+      .viewAns {
+        margin-bottom: 0.5rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        p {
+          font-size: 1rem;
+          margin: 0;
+          margin-left: 5px;
+        }
+      }
+    }
+
+    mat-footer {
+      background-color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem;
+
+      mat-divider {
+        margin: 1rem 0;
+      }
+
+      p {
+        font-size: 0.9rem;
+        margin: 0;
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .button-group {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 16px;
+
+    button {
+      border: none;
+      box-shadow: none;
+      margin: 10px 8px;
+      background-image: radial-gradient(
+        circle 610px at 5.2% 51.6%,
+        rgba(5, 8, 114, 1) 0%,
+        rgba(7, 3, 53, 1) 97.5%
+      );
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      mat-icon {
+        color: white;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+//media queries
+
+@media screen and (max-width: 768px) {
+  .container {
+    .card {
+      width: 90%;
+
+      mat-card-header {
+        padding: 0.5rem;
+        mat-card-title {
+          font-size: 1.2rem;
+        }
+        .tool-icons {
+          width: 50px;
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+
+      mat-content {
+        h2 {
+          font-size: 1rem;
+        }
+        .viewAns {
+          p {
+            font-size: 0.8rem;
+          }
+        }
+      }
+
+      mat-footer {
+        padding: 0.5rem;
+        p {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}

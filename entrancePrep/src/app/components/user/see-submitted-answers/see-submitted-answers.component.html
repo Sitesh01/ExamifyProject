@@ -1,0 +1,28 @@
+<div class="main-content">
+  <div class="blog-header">
+    <div class="back" (click)="onBack()">
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>
+    </div>
+    <div class="score">
+      <p>Score</p>
+      <h1 id="score">{{ score }}</h1>
+    </div>
+  </div>
+  <div class="result-card">
+    <mat-card class="blog-card" *ngFor="let ques of questions; let i = index">
+      <mat-card-header class="result-header">
+        <div class="mat-question">
+          <mat-card-title>Q{{ i + 1 }}.</mat-card-title>
+          <mat-card-title [innerHTML]="ques.question"></mat-card-title>
+        </div>
+        <div
+          class="viewAns"
+          [ngStyle]="{ 'background-color': getResultBgColor(ques) }"
+        >
+          <p>Your answer: {{ ques.answer }}</p>
+          <p>Correct Answer: {{ ques.correctAnswer }}</p>
+        </div>
+      </mat-card-header>
+    </mat-card>
+  </div>
+</div>

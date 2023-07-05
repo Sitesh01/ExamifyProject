@@ -1,0 +1,166 @@
+.container {
+  width: 100%;
+  display: flex;
+
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+}
+.dashboard-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.dashboard-card .card {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 200px;
+  height: 100px;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  .title {
+    font-size: 18px;
+    font-family: "Roboto";
+    color: black;
+    margin-bottom: 10px;
+    font-weight: bold;
+    line-height: 1;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    mat-icon {
+      margin-right: 30px;
+    }
+
+    .count {
+      font-size: 45px;
+      line-height: 1;
+      color: #040838;
+      font-family: "Roboto";
+
+      font-weight: bold;
+    }
+  }
+}
+
+.dashboard-card .card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: 0.5s ease-in-out;
+}
+
+.button-group {
+  position: absolute;
+  bottom: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.button-group button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 200px;
+  height: 40px;
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 5px;
+  color: #333;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.button-group button:hover {
+  background: #333;
+  color: #fff;
+  transition: 0.5s ease-in-out;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dashboard-card {
+    flex-direction: column;
+  }
+
+  .button-group {
+    flex-direction: column;
+    bottom: 0;
+    width: 100%;
+    align-items: center;
+  }
+
+  .button-group button {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .dashboard-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dashboard-card .card {
+    width: 100%;
+    margin: 10px 0;
+    height: auto;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    mat-icon {
+      margin: 10px 0;
+    }
+
+    .count {
+      font-size: 30px;
+    }
+  }
+
+  .button-group {
+    position: static;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .button-group button {
+    width: 100%;
+    margin: 5px 0;
+  }
+}

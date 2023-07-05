@@ -1,0 +1,50 @@
+<div class="container">
+  <h2>Users</h2>
+  <div class="demo-button-container">
+    <button mat-raised-button (click)="addUser()" class="demo-button">
+      Add User
+    </button>
+    <input placeholder="Search" class="searchBox" [(ngModel)]="searchText" (keyup)="filterData()"/>
+  </div>
+
+  <table mat-table [dataSource]="filteredUsers" class="mat-elevation-z8 demo-table">
+    <ng-container matColumnDef="username">
+      <th class="table-Header" mat-header-cell *matHeaderCellDef>Username</th>
+      <td mat-cell *matCellDef="let element">{{ element.username }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th class="table-Header" mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="role">
+      <th class="table-Header" mat-header-cell *matHeaderCellDef>Role</th>
+      <td mat-cell *matCellDef="let element">{{ element.role }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="createdAt">
+      <th class="table-Header" mat-header-cell *matHeaderCellDef>Created Date</th>
+      <td mat-cell *matCellDef="let element">{{ element.createdAt | date }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th class="table-Header" mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let element">
+        <img
+          src="../../../../assets/icons/edit.svg"
+          alt="edit-icon"
+          (click)="onEdit(element)"
+        />
+        <img
+          src="../../../../assets/icons/delete.svg"
+          alt="delete-icon"
+          (click)="onDelete(element.uniqueID)"
+        />
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

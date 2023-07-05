@@ -1,0 +1,223 @@
+$primary-color: #007bff;
+$danger-color: #dc3545;
+$font-primary: "Jaldi", sans-serif;
+$font-secondary: "Koulen", cursive;
+$font-heading: "Sigmar One", cursive;
+$border-radius: 50px;
+$button-padding: 10px 20px;
+$button-margin: 5px;
+$button-width: 10vw;
+$button-transition: 0.3s ease-in-out;
+$button-text-color: #fff;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+
+  .back {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  h2 {
+    margin: 0;
+    font-family: $font-heading;
+  }
+}
+
+.form-container {
+  padding: 20px;
+
+  .form-field {
+    margin-bottom: 20px;
+
+    mat-radio-button {
+      margin-right: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-family: $font-secondary;
+    }
+
+    input[type="text"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: none;
+      background-color: #f6f6f6;
+      font-family: $font-primary;
+    }
+
+    select {
+      padding: 10px 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      appearance: none;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill="black" d="M4.5 6L8 9.5 11.5 6z"/></svg>')
+        no-repeat right center / 16px 16px;
+      &:focus {
+        outline: none !important;
+        border-color: $primary-color !important;
+      }
+    }
+
+    textarea {
+      resize: none;
+      height: 100px;
+    }
+
+    .option-div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .addOption-btn {
+        border: none;
+        border-radius: 50px;
+        padding: 5px;
+        background-color: $primary-color;
+        color: #fff;
+        margin: 5px;
+        cursor: pointer;
+        width: 5vw;
+
+        &:hover {
+          background-color: darken($primary-color, 10%);
+          transition: 0.3s ease-in-out;
+        }
+      }
+    }
+
+    .option-div-2 {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+
+      input {
+        width: 20vw;
+      }
+
+      .removeOption-btn {
+        border: none;
+        border-radius: 50px;
+        padding: 5px;
+        background-color: $danger-color;
+        color: #fff;
+        margin: 5px;
+        cursor: pointer;
+        width: 5vw;
+
+        &:hover {
+          background-color: darken($danger-color, 10%);
+          transition: 0.3s ease-in-out;
+        }
+      }
+    }
+  }
+  .add-btn {
+    border: none;
+    border-radius: $border-radius;
+    padding: $button-padding;
+    background-color: $primary-color;
+    color: $button-text-color;
+    margin: $button-margin;
+    cursor: pointer;
+    width: $button-width;
+    &:hover {
+      background-color: darken($primary-color, 10%);
+      transition: $button-transition;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    .card {
+      width: 100%;
+      .form-container {
+        .form-field {
+          input[type="text"],
+          select,
+          textarea {
+            width: 100%;
+          }
+          .option-div,
+          .option-div-2 {
+            flex-direction: column;
+            align-items: flex-start;
+            input {
+              width: 100%;
+            }
+            button {
+              margin-top: 10px;
+            }
+          }
+        }
+        .add-btn {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .container {
+    height: 70vh;
+    .card {
+      width: 100%;
+      .header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h2 {
+          margin-top: 20px;
+          margin-bottom: 10px;
+        }
+      }
+      .form-container {
+        padding: 10px;
+
+        .form-field {
+          margin-bottom: 15px;
+          label {
+            font-size: 14px;
+          }
+          input[type="text"],
+          select,
+          textarea {
+            font-size: 14px;
+          }
+          .option-div,
+          .option-div-2 {
+            align-items: flex-start;
+            input {
+              width: 100%;
+            }
+            button {
+              margin-top: 10px;
+              width: 100%;
+            }
+          }
+        }
+        .add-btn {
+          width: 100%;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

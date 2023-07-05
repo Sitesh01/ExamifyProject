@@ -1,0 +1,35 @@
+<div class="blog-post">
+  <div class="content-post">
+    <h2>{{ title }}</h2>
+    <img src="{{ image }}" alt="{{ title }}" />
+    <div [innerHTML]="content" class="content"></div>
+    <p>- {{ author }}</p>
+  </div>
+  <mat-divider></mat-divider>
+  <h1>Comments</h1>
+  <div class="posetdComment" *ngFor="let comment of comments">
+    <div class="first-div">
+      <h2>{{ comment.firstInitial }}</h2>
+    </div>
+    <div class="second-div">
+      <div class="commenterName">{{ comment.user.username }}</div>
+      <div class="commentContent">{{ comment.comment }}</div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="commentBox">
+    <form [formGroup]="commentForm" (ngSubmit)="submitComment()">
+      <div class="form-field">
+        <div class="header">
+          <label>Post a comment</label>
+        </div>
+        <textarea
+          type="textbox"
+          name="comment"
+          formControlName="comment"
+        ></textarea>
+        <button mat-raised-button color="primary" type="submit">Post</button>
+      </div>
+    </form>
+  </div>
+</div>

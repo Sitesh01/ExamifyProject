@@ -1,0 +1,86 @@
+// Define variables for colors and spacing
+$primary-color: #2c3e50;
+$secondary-color: #27ae60;
+$padding-small: 10px;
+$padding-medium: 20px;
+
+// Apply styles to the container element
+.container {
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
+  padding: $padding-medium;
+  font-family: "Roboto", sans-serif;
+  height: 90vh;
+}
+
+// Apply styles to each list item
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid $primary-color;
+  padding: $padding-medium $padding-small;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  width: 100%;
+
+  &:hover {
+    background-color: $secondary-color;
+    color: white;
+  }
+
+  // Apply styles to the first column
+  .first {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: $primary-color;
+    color: white;
+    font-size: 24px;
+
+    h1 {
+      margin: 0;
+    }
+  }
+
+  // Apply styles to the second column
+  .second {
+    flex-grow: 1;
+    padding: 0 $padding-small;
+
+    h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 0;
+    }
+  }
+
+  // Apply styles to the third column
+  .third {
+    margin-left: auto;
+    margin-right: 1rem;
+    p {
+      font-size: 16px;
+      margin: 0;
+      opacity: 0.6;
+    }
+  }
+
+  // Apply styles to the fourth column
+  .fourth {
+    p {
+      font-size: 16px;
+      margin: 0;
+      opacity: 0.6;
+    }
+  }
+}

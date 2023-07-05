@@ -1,0 +1,44 @@
+<div class="container">
+  <h2>Comment</h2>
+  <mat-tab-group>
+    <mat-tab label="In Progress">
+      <div class="feedback-container">
+        <mat-card *ngFor="let comment of comments" (click)="onCommentClick(comment.blogId)">
+          <mat-card-header>
+            <mat-card-title>{{ comment.user.username }}</mat-card-title>
+            <mat-card-subtitle>{{
+              comment.createdAt | date
+            }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ comment.comment }}</p>
+          </mat-card-content>
+          <mat-footer>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="markCommentAsVerified(comment._id)"
+            >
+              Mark as reviewed
+            </button>
+          </mat-footer>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="Reviewed">
+      <div class="feedback-container">
+        <mat-card *ngFor="let commentItem of reviewedComments">
+          <mat-card-header>
+            <mat-card-title>{{ commentItem.user.username }}</mat-card-title>
+            <mat-card-subtitle>{{
+              commentItem.createdAt | date
+            }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ commentItem.comment }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

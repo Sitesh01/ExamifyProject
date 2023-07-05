@@ -1,0 +1,354 @@
+$primary-color: #4caf50;
+$secondary-color: #26165c;
+$highlight-color: #6897e4;
+
+@mixin button-styles {
+  background-color: $primary-color;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+
+  &:hover {
+    background-color: #43a047;
+  }
+}
+
+.blog-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 92vh;
+
+  .blog-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 7vh;
+    background-color: $highlight-color;
+    padding: 10px;
+    margin: 0;
+
+    .back {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 10px;
+      border-radius: 50%;
+      width: fit-content;
+      height: fit-content;
+      cursor: pointer;
+      color: $secondary-color;
+
+      i {
+        font-size: 20px;
+      }
+    }
+
+    .timer {
+      text-align: center;
+
+      #time {
+        font-size: 24px;
+        margin: 0;
+      }
+    }
+
+    .score {
+      text-align: center;
+      margin: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      color: $secondary-color;
+
+      p {
+        margin: 0;
+        margin-right: 10px;
+        font-weight: 600;
+        font-size: 2rem;
+      }
+
+      h1 {
+        margin: 0;
+        font-weight: 800;
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 85vh;
+
+    .main-content {
+      width: 70vw;
+      display: flex;
+      width: 80vw;
+      overflow: auto;
+      flex-direction: column;
+      padding: 10px;
+      //hide scroll bar
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .result-card {
+      }
+
+      .question-card {
+        width: 70vw;
+        margin: 50px 0;
+      }
+
+      .blog-card {
+        margin: 10px;
+
+        .result-header {
+          display: flex;
+          flex-direction: column;
+        }
+
+        mat-card-header {
+          display: flex;
+          flex-direction: row;
+
+          .mat-question {
+            display: flex;
+            flex-direction: row;
+          }
+
+          .viewAns {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 10px 0;
+            cursor: pointer;
+            color: #fff;
+            padding: 10px;
+            width: 80%;
+            border-radius: 10px;
+          }
+        }
+
+        mat-card-content {
+          .options {
+            display: flex;
+            flex-direction: column;
+            margin: 10px;
+
+            .option {
+              margin: 5px;
+
+              mat-radio-button {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+
+        mat-card-footer {
+          .footer-btn {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            margin: 10px;
+
+            button {
+              @include button-styles;
+              margin-left: 10px;
+              width: 100px;
+            }
+          }
+          .blog-footer {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: 10px;
+            color: $secondary-color;
+            padding: 20px;
+
+            a {
+              text-decoration: none;
+              color: $secondary-color;
+
+              &:hover {
+                color: $highlight-color;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .sidenav-container {
+      display: flex;
+      flex-direction: column;
+      background: rgb(79, 83, 220);
+      width: 30vw;
+      max-width: 30vw;
+      height: 93vh;
+
+      .sidenav {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+
+        .question-index {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          align-items: center;
+          margin: 10px 0;
+          padding: 10px;
+
+          .question {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            width: calc(100% / 6 - 10px);
+
+            p {
+              margin: 0;
+              width: 100%;
+
+              &.active {
+                color: $primary-color;
+              }
+
+              &:hover {
+                background-color: #bec4e3;
+              }
+            }
+          }
+        }
+
+        .hints {
+          p {
+            color: #ffffff92;
+            margin: 0;
+            font-size: 12px;
+          }
+        }
+
+        button {
+          background-color: $primary-color;
+          padding: 10px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          color: #fff;
+
+          &:hover {
+            background-color: #43a047;
+          }
+        }
+      }
+    }
+  }
+}
+
+//media queries
+@media only screen and (max-width: 768px) {
+  .blog-container {
+    .blog-header {
+      .back {
+        i {
+          font-size: 16px;
+        }
+      }
+
+      .timer {
+        #time {
+          font-size: 16px;
+        }
+      }
+
+      .score {
+        p {
+          font-size: 1.5rem;
+        }
+
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    .main-container {
+      .main-content {
+        .result-card {
+          .result-header {
+            .mat-question {
+              h1 {
+                font-size: 1.5rem;
+              }
+            }
+
+            .viewAns {
+              font-size: 12px;
+            }
+          }
+        }
+
+        .question-card {
+          width: 65vw;
+          margin: 25px 0;
+        }
+
+        .blog-card {
+          mat-card-footer {
+            .footer-btn {
+              button {
+                height: 40px;
+                padding: 5px;
+              }
+            }
+          }
+          .result-header {
+            .mat-question {
+              h1 {
+                font-size: 1.5rem;
+              }
+            }
+
+            .viewAns {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+
+      .sidenav-container {
+        width: 40vw;
+
+        .sidenav {
+          .question-index {
+            width: 40vw;
+            .question {
+              p {
+                font-size: 12px;
+              }
+            }
+          }
+
+          .hints {
+            p {
+              font-size: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

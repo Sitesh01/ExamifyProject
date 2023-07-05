@@ -1,0 +1,40 @@
+<h1>{{ subjectFromParams }}</h1>
+<div class="container">
+  <mat-card class="card" *ngFor="let ques of questions; let i = index">
+    <mat-card-header>
+      <mat-card-title [innerHTML]="ques.question"></mat-card-title>
+      <div class="tool-icons">
+        <img
+          src="../../../../assets/icons/edit.svg"
+          alt="edit-icon"
+          *ngIf="admin"
+          (click)="editQuestion(ques, 'editQuestion')"
+        />
+        <img
+          src="../../../../assets/icons/delete.svg"
+          alt="delete-icon"
+          *ngIf="admin"
+          (click)="deleteQuestion($event, ques._id)"
+        />
+      </div>
+    </mat-card-header>
+    <mat-content>
+      <h2>Options</h2>
+      <div class="viewAns" *ngFor="let option of ques.options; let oi = index">
+        {{ oi + 1 }}.&nbsp;
+        <p>{{ option }}</p>
+      </div>
+    </mat-content>
+    <mat-footer>
+      <mat-divider></mat-divider>
+      <p>Correct Answer: {{ ques.correctAnswer }}</p>
+      Explanation:
+      <p [innerHTML]="ques.explanation"></p>
+    </mat-footer>
+  </mat-card>
+  <div class="button-group" *ngIf="admin">
+    <button mat-fab color="accent" (click)="addQuestion()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>
